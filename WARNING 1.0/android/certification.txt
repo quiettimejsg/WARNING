@@ -1,0 +1,24 @@
+---------------------------------------------------
+Here are the ownership and the certification details
+of the WARNING 1.0
+---------------------------------------------------
+
+app_name - 						WARNING
+app_alias - 					warning
+app_author_name - 				My Company
+app_author_organizational - 	My Company
+app_author_organization - 		My Company
+app_author_locality - 			My Company
+app_author_state - 				Jiangsu
+app_author_country - 			China
+app_password - 					23qDC6HXmtfy
+app_versionName - 				versionName "1.0"
+app_versionCode - 				100
+
+---------------------------------------------------
+The certification was created by WebIntoApp.com at
+the Sunday 25th of May 2025 05:10:52 PM
+
+https://www.webintoapp.com
+---------------------------------------------------
+

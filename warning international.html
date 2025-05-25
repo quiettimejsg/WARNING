@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>危险警报</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0; /* 移除body的内边距以实现全屏铺满 */
+            background-color: #f0f0f0;
+            /* 基础字体大小，高DPI设备会通过媒体查询调整 */
+            font-size: 16px;
+        }
+        .alarm-container {
+            max-width: none; /* 移除最大宽度限制 */
+            margin: 0; /* 取消居中边距 */
+            padding: 2vh 2vw; /* 基于视口的内边距 */
+            min-height: 100vh; /* 确保容器高度覆盖整个视口 */
+            display: flex; /* 弹性布局 */
+            flex-direction: column; /* 垂直排列内容 */
+            justify-content: center; /* 内容垂直居中 */
+            align-items: center; /* 内容水平居中 */
+        }
+
+        .content-container {
+            background-color: #ffffff; /* 白色容器背景 */
+            padding: 30px; /* 通用内边距 */
+            border-radius: 15px; /* 圆角边框 */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 轻微阴影 */
+            width: 90%; /* 默认宽度为屏幕的90% */
+            max-width: 1200px; /* 最大宽度限制 */
+            margin: 0 auto; /* 水平居中 */
+            cursor: pointer; /* 提示可点击 */
+        }
+        h1 {
+            color: #d32f2f;
+            font-size: 3vw; /* 基础视口宽度字体 */
+            word-wrap: break-word; /* 长文本换行 */
+            white-space: normal; /* 正常换行 */
+            /* 移除不支持的min-font-size，通过媒体查询设置小屏幕字体 */
+        }
+        
+        /* 小屏幕（≤768px）自适应 */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 8vw; /* 调整小屏幕字体 */
+            }
+        }
+        .warning {
+            color: #d32f2f;
+            font-weight: bold;
+            margin-bottom: 2vh; /* 基于视口高度的边距 */
+            font-size: 2vw; /* 基础视口宽度字体 */
+            word-wrap: break-word; /* 长文本换行 */
+            white-space: normal; /* 正常换行 */
+            /* 移除不支持的min-font-size，通过媒体查询设置小屏幕字体 */
+        }
+        
+        /* 小屏幕（≤768px）自适应 */
+        @media (max-width: 768px) {
+            .warning {
+                font-size: 6vw; /* 调整小屏幕字体 */
+            }
+        }
+        
+        .content-container {
+            background-color: #ffffff; /* 白色容器背景 */
+            padding: 30px; /* 通用内边距 */
+            border-radius: 15px; /* 圆角边框 */
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 轻微阴影 */
+            width: 90%; /* 默认宽度为屏幕的90% */
+            max-width: 1200px; /* 最大宽度限制 */
+            margin: 0 auto; /* 水平居中 */
+            cursor: pointer; /* 提示可点击 */
+        }
+        
+        /* 小屏幕自适应调整 */
+        @media (max-width: 768px) {
+            .content-container {
+                width: 95%; /* 小屏幕宽度调整为95% */
+                padding: 20px; /* 减小内边距 */
+            }
+        }
+        
+        /* 小屏幕（≤768px）自适应 */
+        @media (max-width: 768px) {
+            .time-display {
+                font-size: 8vw; /* 调整小屏幕字体 */
+            }
+        }
+
+        .language-selector {
+            margin-top: 20px;
+        }
+        .language-btn {
+            margin: 5px;
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .start-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="alarm-container">
+            <div class="content-container">
+                <h1 id="title">危险警报</h1>
+                <p class="warning" id="warning">此区域存在危险，请立即撤离</p>
+            </div>
+        </div>
+
+    <script>
+        // 语言配置
+        const languages = {
+            zh: {
+                title: "危险警报",
+                warning: "此区域存在危险，请立即撤离"
+            },
+            en: {
+                title: "Emergency Alarm",
+                warning: "This area is dangerous, please evacuate immediately"
+            },
+            ja: {
+                title: "危険アラーム",
+                warning: "このエリアには危険があります。すぐに避難してください。"
+            }
+        };
+
+        // 更新页面语言（修复空值问题）
+        function updateLanguage(lang) {
+            try {
+                const langConfig = languages[lang] || languages.zh; // 防止语言配置缺失
+                const titleEl = document.getElementById('title');
+                const warningEl = document.getElementById('warning');
+                if (!titleEl || !warningEl) throw new Error('目标元素未找到');
+                titleEl.textContent = langConfig.title;
+                warningEl.textContent = langConfig.warning;
+                console.log(`成功切换语言到：${lang}，标题：${langConfig.title}`);
+            } catch (error) {
+                console.error('语言更新失败：', error.message);
+            }
+        }
+
+        // 初始化页面（修复定时器作用域问题）
+        function initPage() {
+            try {
+                const defaultLang = 'zh'; // 默认使用中文
+                updateLanguage(defaultLang);
+
+                // 获取语言键数组（确保非空）
+                const langKeys = Object.keys(languages);
+                if (langKeys.length === 0) throw new Error('语言配置数组为空');
+
+                // 初始化语言索引（使用闭包保持状态）
+                let currentLangIndex = langKeys.indexOf(defaultLang);
+                if (currentLangIndex === -1) currentLangIndex = 0; // 处理默认语言不存在的情况
+                console.log(`初始化语言索引：${currentLangIndex}（对应语言：${langKeys[currentLangIndex]}）`);
+
+                // 每3秒切换一次语言（确保数组有效时启动）
+                if (langKeys.length > 0) {
+                    const timerId = setInterval(() => {
+                        currentLangIndex = (currentLangIndex + 1) % langKeys.length;
+                        updateLanguage(langKeys[currentLangIndex]);
+                    }, 3000);
+                    console.log(`语言切换定时器已启动（ID:${timerId}），切换间隔：3000ms`);
+                }
+            } catch (error) {
+                console.error('初始化失败：', error.message);
+            }
+        }
+
+        // 单例模式：确保全局仅创建一个音频实例，实现资源复用和缓存
+        // 使用Web Audio API创建音频（支持无外部文件生成警报音）
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        // 创建音频振荡器（生成基础音调）
+        function createAlarmOscillator() {
+            const oscillator = audioContext.createOscillator();
+            oscillator.type = 'sine'; // 正弦波音调
+            oscillator.frequency.setValueAtTime(1000, audioContext.currentTime); // 1000Hz高频
+            
+            const gainNode = audioContext.createGain();
+            gainNode.gain.setValueAtTime(1.0, audioContext.currentTime); // 音量1.0
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            return oscillator;
+        }
+        
+        // 全局音频实例（确保多次点击复用上下文）
+        let alarmOscillator = null;
+
+        // 页面加载完成后执行初始化
+        window.addEventListener('load', () => {
+            console.log('页面加载完成，开始执行初始化...');
+            initPage();
+
+            // 为白色容器添加点击事件
+            const contentContainer = document.querySelector('.content-container');
+            if (contentContainer) {
+// 外层状态变量
+let isLooping = false;
+let alarmOscillator = null;
+let stopAlarmTimeout = null;
+let restartAlarmTimeout = null;
+
+contentContainer.addEventListener('click', () => {
+  if (isLooping) {
+    // 停止循环逻辑
+    isLooping = false;
+    if (alarmOscillator) {
+      alarmOscillator.stop();
+      alarmOscillator = null;
+    }
+    clearTimeout(stopAlarmTimeout);
+    clearTimeout(restartAlarmTimeout);
+    console.log('警报循环播放已停止');
+  } else {
+    // 开始循环逻辑
+    isLooping = true;
+    const playAlarm = () => {
+      if (!isLooping) return; // 确保循环状态
+      // 清除残留定时器
+      clearTimeout(stopAlarmTimeout);
+      clearTimeout(restartAlarmTimeout);
+      // 创建并播放音频
+      alarmOscillator = createAlarmOscillator();
+      alarmOscillator.start();
+      console.log('警报播放，1.5秒后自动停止');
+      // 设置1.5秒后停止
+      stopAlarmTimeout = setTimeout(() => {
+        if (alarmOscillator) {
+          alarmOscillator.stop();
+          alarmOscillator = null;
+        }
+        console.log('警报停止，0.6秒后重新播放');
+        // 设置0.6秒后重新播放
+        restartAlarmTimeout = setTimeout(() => {
+          if (isLooping) playAlarm();
+        }, 600);
+      }, 1500);
+    };
+    playAlarm(); // 启动首次播放
+                  }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
