@@ -2,7 +2,7 @@
 
 [English](#introduction-english) | [日本語](#説明-日本語) | [中文](#简介-中文) 
 
-## Introduction (English)
+## Introduction (English) <a id="introduction-english"></a>
 
 WARNING is an Android application designed to provide users with warning notifications or related features.  
 This project is open source. Contributions and feedback are welcome!
@@ -25,7 +25,7 @@ Feel free to open issues or submit pull requests to make this project better!
 
 ---
 
-## 简介（中文）
+## 简介（中文） <a id="简介-中文"></a>
 
 WARNING 是一个 Android 应用，旨在为用户提供警告通知或相关功能。  
 本项目开源，欢迎贡献和反馈。
@@ -46,10 +46,9 @@ WARNING 是一个 Android 应用，旨在为用户提供警告通知或相关功
 
 欢迎提交 Issue 或 Pull Request 改进本项目！
 
-
 ---
 
-## 説明（日本語）
+## 説明（日本語） <a id="説明-日本語"></a>
 
 WARNINGは、ユーザーに警告通知や関連機能を提供するために設計されたAndroidアプリです。  
 このプロジェクトはオープンソースであり、貢献やフィードバックを歓迎します。
