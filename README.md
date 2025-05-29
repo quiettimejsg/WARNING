@@ -1,44 +1,69 @@
+# WARNING
 
-FREE APP
+## 简介（中文）
 
-Created by WebIntoApp.com on Sunday 25th of May 2025 05:10:52 PM.
+WARNING 是一个 Android 应用，旨在为用户提供警告通知或相关功能。  
+本项目开源，欢迎贡献和反馈。
 
-Release APK & App Bundle (AAB) ready to be submitted to Google Play Store 
-and to any other APK / AAB store over the internet.
+## 特性
 
--------------------------------------
-App ID:			760214
-App Key:		MAIIobqnKAoVxxEUJVbrvJwyCfUiZHYx
-App Name:		WARNING
-App Version:	1.0
-Package:		com.quiettimejsg.warning
-Mode:			Free App
--------------------------------------
+- 简洁易用的界面
+- 高效的通知推送
+- 易于扩展和集成
 
-Your free app is ready, you can now publish it to the 
-google play store and to any apk app store on the internet.
+## 安装与使用
 
--------------------------------------
-Please note, your app is under a FREE mode, you can always 
-convert it to your own dedicated and branded mobile app for 
-Android and iOS with all the premium features at:
+1. 下载 APK 或 AAB 文件。
+2. 安装到你的 Android 设备上。
+3. 打开应用并按提示操作。
 
-https://www.webintoapp.com/author/apps/760214/edit?cmd=app-switcher
+## 贡献
 
--------------------------------------
-Here are some useful links:
--------------------------------------
+欢迎提交 Issue 或 Pull Request 改进本项目！
 
-You can edit your app at:
-https://www.webintoapp.com/author/apps
+---
 
-Get installs statistics at:
-https://www.webintoapp.com/author/stats?appid=760214
+## Introduction (English)
 
-The Author Area:
-https://www.webintoapp.com/author/dashboard
+WARNING is an Android application designed to provide users with warning notifications or related features.  
+This project is open source. Contributions and feedback are welcome!
 
--------------------------------------
-WebIntoApp.com Team.
-https://www.webintoapp.com
--------------------------------------
+## Features
+
+- Simple and user-friendly interface
+- Efficient notification delivery
+- Easy to extend and integrate
+
+## Installation & Usage
+
+1. Download the APK or AAB file.
+2. Install it on your Android device.
+3. Launch the app and follow the instructions.
+
+## Contribution
+
+Feel free to open issues or submit pull requests to make this project better!
+
+---
+
+## 소개 (한국어)
+
+WARNING은 사용자에게 경고 알림 또는 관련 기능을 제공하도록 설계된 안드로이드 앱입니다.  
+이 프로젝트는 오픈 소스이며, 누구나 기여와 피드백을 환영합니다.
+
+## 특징
+
+- 간단하고 직관적인 인터페이스
+- 효율적인 알림 제공
+- 확장 및 통합 용이
+
+## 설치 및 사용법
+
+1. APK 또는 AAB 파일을 다운로드하세요.
+2. 안드로이드 기기에 설치합니다.
+3. 앱을 실행하고 안내에 따라 사용하세요.
+
+## 기여
+
+이슈 등록이나 풀 리퀘스트 제출로 프로젝트 개선에 참여해 주세요!
+
