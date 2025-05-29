@@ -1,6 +1,6 @@
 # WARNING
 
-[English](## Introduction (English)) |  [日本語](## 説明（日本語）) | [中文](## 简介（中文）) 
+[English](#introduction-english) | [日本語](#説明-日本語) | [中文](#简介-中文) 
 
 ## Introduction (English)
 
