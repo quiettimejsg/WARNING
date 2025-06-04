@@ -1,0 +1,195 @@
+/* 
+ * WARNING 应用增强版 - 样式文件
+ * 优化界面样式，提高视觉震慑力
+ */
+
+:root {
+  --warning-red: #ff0000;
+  --warning-dark-red: #b30000;
+  --warning-yellow: #ffcc00;
+  --warning-black: #000000;
+  --warning-white: #ffffff;
+  --flash-duration: 0.8s;
+}
+
+/* 全局样式重置与基础设置 */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--warning-black);
+  overflow: hidden;
+  -webkit-user-select: none; /* 防止文本选择 */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent; /* 移除移动端点击高亮 */
+}
+
+/* 主容器样式 */
+.alarm-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--warning-black);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 警告内容容器 */
+.content-container {
+  width: 90%;
+  max-width: 1200px;
+  padding: 30px;
+  border-radius: 8px;
+  background-color: var(--warning-red);
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  animation: pulse 1.5s infinite alternate;
+  cursor: pointer;
+  border: 4px solid var(--warning-yellow);
+}
+
+/* 警告标题样式 */
+h1 {
+  color: var(--warning-white);
+  font-size: 3.5rem;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  font-weight: 900;
+}
+
+/* 警告文本样式 */
+.warning {
+  color: var(--warning-white);
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* 闪烁边框效果 */
+.content-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 5px solid var(--warning-yellow);
+  border-radius: 15px;
+  animation: borderFlash 1s infinite alternate;
+  z-index: -1;
+}
+
+/* 背景闪烁效果 */
+.flash-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.2);
+  z-index: 1;
+  pointer-events: none;
+  animation: backgroundFlash var(--flash-duration) infinite alternate;
+}
+
+/* 警告图标 */
+.warning-icon {
+  font-size: 5rem;
+  color: var(--warning-yellow);
+  margin-bottom: 20px;
+  animation: rotate 3s infinite linear;
+}
+
+/* 音量指示器 */
+.volume-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  color: var(--warning-white);
+  cursor: pointer;
+  z-index: 100;
+}
+
+/* 动画定义 */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes borderFlash {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes backgroundFlash {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .warning {
+    font-size: 1.5rem;
+  }
+  
+  .warning-icon {
+    font-size: 4rem;
+  }
+}
+
+/* 高对比度模式 */
+@media (prefers-contrast: high) {
+  .content-container {
+    background-color: #000000;
+    border: 6px solid #ffffff;
+  }
+  
+  h1, .warning {
+    color: #ffffff;
+    text-shadow: none;
+  }
+}
+
+/* 减少动画模式 */
+@media (prefers-reduced-motion) {
+  .content-container,
+  .content-container::before,
+  .flash-background,
+  .warning-icon {
+    animation: none;
+  }
+}

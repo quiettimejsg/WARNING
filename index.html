@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>警告</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="content-container">
+    <h1>警告</h1>
+    <p>请立即离开此区域！</p>
+  </div>
+  
+  <!-- 音频元素 -->
+  <audio id="warning-audio" loop>
+    <source src="audio/warning_siren.mp3" type="audio/mpeg">
+    您的浏览器不支持音频元素。
+  </audio>
+  
+  <!-- 脚本引用 -->
+  <script src="js/alarm.js"></script>
+  <script src="js/keepalive.js"></script>
+  <script src="js/device.js"></script>
+  <script src="js/enhanced-keepalive.js"></script>
+  <script src="js/auto-restart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // 页面加载完成后初始化应用
+    document.addEventListener('DOMContentLoaded', () => {
+      // 创建并初始化警告控制器
+      const warningController = new WarningController();
+      warningController.init();
+      
+      // 保存全局引用
+      window.warningController = warningController;
+    });
+  </script>
+</body>
+</html>
